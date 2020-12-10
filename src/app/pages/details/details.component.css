@@ -1,3 +1,30 @@
-:host {
-  display: block;
+.container {
+    background-color: #ebe7e8;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 20px 20px 20px 20px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 30px 80px 0 rgba(0, 0, 0, 0.3);
+    padding: 40px;
+}
+
+#video {
+    height: 490px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.row,
+.col-sm-4 {
+    padding: 30px;
+}
+
+button {
+    margin: 2px;
+    padding: 2px;
+}
+
+h2,
+h3 {
+    text-decoration-line: underline;
+    text-decoration-color: #9e7d88;
 }
