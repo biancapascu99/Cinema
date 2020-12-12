@@ -1,6 +1,10 @@
 <app-menu></app-menu>
 <p>reserve works!</p>
-<app-seat-card></app-seat-card>
-<app-seat-card></app-seat-card>
-<app-seat-card></app-seat-card>
-<app-seat-card></app-seat-card>
+<span *ngFor="let item of seatCards; let i=index">
+    
+    <app-seat-card [reserve]=item.reserve [clicked]=item.clicked [numberSeat]=item.numberSeat></app-seat-card>
+    <br *ngIf=" (i+1) % 4==0 ">
+
+
+
+</span>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from "@angular/router";
+import { AddMovieComponent } from './pages/add-movie/add-movie.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -37,6 +38,10 @@ const routes: Routes = [
     {
         path: 'reserve',
         component: ReserveComponent
+    },
+    {
+        path: 'addMovie',
+        component: AddMovieComponent
     }
 ];
 

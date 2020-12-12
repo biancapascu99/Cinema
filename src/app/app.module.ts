@@ -18,6 +18,7 @@ import { ProgramComponent } from './pages/program/program.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { ReserveComponent } from './pages/reserve/reserve.component';
+import { AddMovieComponent } from './pages/add-movie/add-movie.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ReserveComponent } from './pages/reserve/reserve.component';
     ProgramComponent,
     ContactComponent,
     DetailsComponent,
-    ReserveComponent
+    ReserveComponent,
+    AddMovieComponent
   ],
   imports: [
     BrowserModule,

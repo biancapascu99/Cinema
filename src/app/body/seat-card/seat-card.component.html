@@ -1,5 +1,5 @@
 <div class="card d-inline-block">
-    <button class="btn btn-success text-center ">
-        100
+    <button (click)="reseveSeat()" [ngClass]="{'btn btn-danger text-center': clicked ===  true,'btn btn-success text-center': clicked === false}">
+       {{numberSeat}}
     </button>
 </div>
