@@ -1,0 +1,7 @@
+<div class="card d-inline-block">
+    <button (click)="clickSeat(seatNumber)" [disabled]="reserved" [ngClass]="{'btn btn-secondary text-center': reserved === true,
+    'btn btn-danger text-center': clicked ===  true,
+    'btn btn-success text-center': (clicked === false && reserved === false)}">
+       {{seatNumber}}
+    </button>
+</div>

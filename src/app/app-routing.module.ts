@@ -5,9 +5,9 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
-import { ProgramComponent } from './pages/program/program.component';
+import { ScheduleComponent } from './pages/schedule/schedule.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { ReserveComponent } from './pages/reserve/reserve.component';
+import { ReservationComponent } from './pages/reservation/reservation.component';
 
 
 const routes: Routes = [
@@ -24,8 +24,8 @@ const routes: Routes = [
         component: RegisterComponent
     },
     {
-        path: 'program',
-        component: ProgramComponent
+        path: 'schedule',
+        component: ScheduleComponent
     },
     {
         path: 'contact',
@@ -36,8 +36,8 @@ const routes: Routes = [
         component: DetailsComponent
     },
     {
-        path: 'reserve',
-        component: ReserveComponent
+        path: 'reservation',
+        component: ReservationComponent
     },
     {
         path: 'addMovie',

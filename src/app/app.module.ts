@@ -2,23 +2,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { MenuComponent } from './header/menu/menu.component';
-import { DropdownAdminComponent } from './header/dropdown-admin/dropdown-admin.component';
+import { MenuComponent } from './shared/menu/menu.component';
+import { DropdownAdminComponent } from './shared/dropdown-admin/dropdown-admin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { MovieCardComponent } from './body/movie-card/movie-card.component';
+import { MovieCardComponent } from './pages/schedule/movie-card/movie-card.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
-import { TabsComponent } from './body/tabs/tabs.component';
-import { SeatCardComponent } from './body/seat-card/seat-card.component';
+
+import { SeatCardComponent } from './pages/reservation/seat-card/seat-card.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { ProgramComponent } from './pages/program/program.component';
+import { ScheduleComponent } from './pages/schedule/schedule.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { DetailsComponent } from './pages/details/details.component';
-import { ReserveComponent } from './pages/reserve/reserve.component';
+import { ReservationComponent } from './pages/reservation/reservation.component';
 import { AddMovieComponent } from './pages/add-movie/add-movie.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,15 +27,15 @@ import { AddMovieComponent } from './pages/add-movie/add-movie.component';
     MenuComponent,
     DropdownAdminComponent,
     MovieCardComponent,
-    TabsComponent,
+   
     SeatCardComponent,
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ProgramComponent,
+    ScheduleComponent,
     ContactComponent,
     DetailsComponent,
-    ReserveComponent,
+    ReservationComponent,
     AddMovieComponent
   ],
   imports: [
@@ -43,6 +44,7 @@ import { AddMovieComponent } from './pages/add-movie/add-movie.component';
     BrowserAnimationsModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
+    HttpClientModule
     
   ],
   providers: [],

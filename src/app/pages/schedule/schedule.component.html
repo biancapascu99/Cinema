@@ -1,0 +1,29 @@
+<app-menu></app-menu>
+
+<div>
+    <tabset [justified]="true">
+        <tab heading="Luni">
+
+            <app-movie-card *ngFor="let movieCard of filterByDay(0)" [movieCard]='movieCard'></app-movie-card>
+
+        </tab>
+        <tab heading="Marti">
+            <app-movie-card *ngFor="let movieCard of filterByDay(1)" [movieCard]='movieCard'></app-movie-card>
+        </tab>
+        <tab heading="Miercuri">
+            <app-movie-card *ngFor="let movieCard of filterByDay(2)" [movieCard]='movieCard'></app-movie-card>
+        </tab>
+        <tab heading="Joi">
+            <app-movie-card *ngFor="let movieCard of filterByDay(3)" [movieCard]='movieCard'></app-movie-card>
+        </tab>
+        <tab heading="Vineri">
+            <app-movie-card *ngFor="let movieCard of filterByDay(4)" [movieCard]='movieCard'></app-movie-card>
+        </tab>
+        <tab heading="Sambata">
+            <app-movie-card *ngFor="let movieCard of filterByDay(5)" [movieCard]='movieCard'></app-movie-card>
+        </tab>
+        <tab heading="Duminica">
+            <app-movie-card *ngFor="let movieCard of filterByDay(6)" [movieCard]='movieCard'></app-movie-card>
+        </tab>
+    </tabset>
+</div>
