@@ -1,5 +1,5 @@
 <div class="card d-inline-block">
-    <img src="../../../assets/image/hp.jpeg" class="card-img-top" alt="...">
+    <!-- <img src="../../../assets/image/hp.jpeg" class="card-img-top" alt="..."> -->
     <div class="card-body">
         <h5>{{movieCard.title}}</h5>
         <h6>Ora: {{movieCard.time | date:'shortTime'}}</h6>
@@ -7,8 +7,8 @@
 
         <!-- <p class="card-text">Scurta descriere sau genul</p> -->
         <div class="text-center">
-            <a [routerLink]="['/reservation']" class="btn btn-outline-dark">Rezerva</a>
-            <a [routerLink]="['/details']" class="btn btn-outline-dark ml-2">Detalii</a>
+            <a [routerLink]="['/reservation/', movieCard.screeningId]" class="btn btn-outline-dark">Rezerva</a>
+            <a [routerLink]="['/details/', movieCard.movieId]" class="btn btn-outline-dark ml-2">Detalii</a>
         </div>
     </div>
 </div>

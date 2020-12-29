@@ -22,7 +22,6 @@ export class ScheduleComponent implements OnInit {
 
   readSchedule() {
     this.dataService.readSchedule().subscribe((data: any[]) => {
-      // console.log(data);
       for (let movieCard of data) {
         this.movieCards.push({
           movieId: movieCard.MovieId,

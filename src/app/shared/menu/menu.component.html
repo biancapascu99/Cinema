@@ -2,26 +2,19 @@
 
     <div class="container-fluid">
         <a [routerLink]="['']" class="navbar-brand text-light">
- Cinema
+            Cinema
         </a>
-        <!-- <img src="assets/image/logo.png"> -->
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <a [routerLink]="['']" class="nav-link text-light" aria-current="page">Acasa</a>
+        <a [routerLink]="['/schedule']" class="nav-link text-light">Program</a>
+        <a [routerLink]="['/contact']" class="nav-link text-light">Contact</a>
+        <!-- componenta dropdown admin -->
+        <app-dropdown-admin></app-dropdown-admin>
 
-            <a [routerLink]="['']" class="nav-link text-light" aria-current="page">Acasa</a>
-            <a [routerLink]="['/schedule']" class="nav-link text-light">Program</a>
-            <a [routerLink]="['/contact']" class="nav-link text-light">Contact</a>
+        <span class="fill-remaining-space"></span>
 
-            <!-- componenta dropdown admin -->
-            <app-dropdown-admin></app-dropdown-admin>
+        <a class="nav-link text-light">Biletele mele</a>
 
-
-        </div>
-
-        <!-- todo responsiv -->
         <div class="text-right">
             <button [routerLink]="['/login']" type="button" class="btn btn-outline-light float-right  ml-2">Autentificare </button>
             <button [routerLink]="['/register']" type="button" class="btn btn-outline-light float-right">Inregistrare </button>

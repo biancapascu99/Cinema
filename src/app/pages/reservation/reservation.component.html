@@ -1,19 +1,27 @@
 <app-menu></app-menu>
 <div class="container" style="margin-top:30px">
 
-    <h2>Harry Potter</h2>
-    <br>
-    <h4>Ora: 14:20</h4>
 
-    <h5>Nr. sala: 15</h5>
+    <h2>{{reservation?.title}}</h2>
     <br>
+    <h4>Ora: {{reservation?.time | date:'shortTime'}}</h4>
+    <h4>Tip ecranizare: {{reservation?.projectorType}}</h4>
+
+    <h5>Nr. sala: {{reservation?.roomNumber}}</h5>
+    <br>
+    <br>
+    <div class="alert alert-danger" *ngIf="this.chosenSeats.length > 5">
+        Nu puteti selecta mai mult de 5 locuri!
+    </div>
     <p></p>
     <span class="seat-table" *ngFor="let item of seatCards; let i=index">
     
         <app-seat-card  (clickedSeat)="onClickedSeat($event)" [reserved]=item.reserved [clicked]=item.clicked [seatNumber]=item.seatNumber></app-seat-card>
-        <br *ngIf=" (i+1) % 10==0 ">
+        <br *ngIf=" (i+1) % 8==0 ">
 
     </span>
+
     <br> <br>
-    <button [routerLink]="['/reservation']" class="btn btn-dark">Rezerva</button>
+
+    <button [routerLink]="['/schedule']" [disabled]="this.chosenSeats.length > 5 || this.chosenSeats.length === 0 " (click)="createReservation()" class="btn btn-dark">Rezerva</button>
 </div>

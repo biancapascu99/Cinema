@@ -32,11 +32,11 @@ const routes: Routes = [
         component: ContactComponent
     },
     {
-        path: 'details',
+        path: 'details/:id',
         component: DetailsComponent
     },
     {
-        path: 'reservation',
+        path: 'reservation/:id',
         component: ReservationComponent
     },
     {

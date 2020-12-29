@@ -1,38 +1,39 @@
 <app-menu></app-menu>
 
-
 <div class="container" style="margin-top:30px">
-    <h2 style="text-align: center;">Harry Potter</h2>
+    <h2 style="text-align: center;">{{movieDetails?.title}}</h2>
     <br>
     <div class="row">
 
-        <div class="col-sm-4">
+        <!-- <div class="col-sm-4">
             <img id="photo" class="col-sm-12" src="../../../assets/image/hp.jpeg" alt="HP">
-        </div>
-        <div class="col-sm-4">
-            <h3>Gen</h3>
-            <button type="button" class="btn btn-secondary" disabled>{{actiune}}</button>
-            <button type="button" class="btn btn-secondary" disabled>Animatie</button>
+        </div> -->
+        <div class="col-sm-6">
+            <h3>Audienta</h3>
+            <button type="button" class="btn btn-secondary" disabled>{{movieDetails?.type}}</button>
+            <!-- <button type="button" class="btn btn-secondary" disabled>Animatie</button> -->
         </div>
 
-        <div class="col-sm-4" style="text-align: center;">
+        <!-- <div class="col-sm-4" style="text-align: center;">
             <a [routerLink]="['/reservation']" class="btn btn-dark btn-lg">Rezerva</a>
+        </div> -->
+
+        <div class="col-sm-6">
+            <h3>Durata</h3>
+            <h5>{{movieDetails?.duration}}</h5>
         </div>
 
         <div class="col-sm-12">
-            <h3>{{actori}}</h3>
-            <p>daaaaaa, laaaaa, gdbshdbashd, hdvahdvah</p>
+            <br>
             <h3>Plot</h3>
-
-            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. Sunt in culpa qui officia
-                deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
-            </p>
+            <h5 style="text-align: justify;">{{movieDetails?.summary}}
+            </h5>
         </div>
 
-
+        <!-- 
         <div class="col-sm-12">
             <h3>Trailer</h3>
-        </div>
-        <iframe id="video" class="col-sm-12" src="https://www.youtube.com/embed/lAxgztbYDbs" frameborder="0"></iframe>
+        </div> -->
+        <!-- <iframe id="video" class="col-sm-12" [src]="movieDetails.trailer" frameborder="0"></iframe> -->
 
     </div>

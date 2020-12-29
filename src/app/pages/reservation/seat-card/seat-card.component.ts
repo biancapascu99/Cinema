@@ -20,7 +20,6 @@ export class SeatCardComponent implements OnInit {
 
   clickSeat(seatNumber:number){
     this.clicked = !this.clicked;
-    this.clickedSeat.emit(seatNumber);
-    
+    this.clickedSeat.emit(seatNumber);  
   }
 }
