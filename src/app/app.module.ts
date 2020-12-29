@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { MovieCardComponent } from './pages/schedule/movie-card/movie-card.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { FormsModule } from '@angular/forms';
 
 import { SeatCardComponent } from './pages/reservation/seat-card/seat-card.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +21,7 @@ import { DetailsComponent } from './pages/details/details.component';
 import { ReservationComponent } from './pages/reservation/reservation.component';
 import { AddMovieComponent } from './pages/add-movie/add-movie.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddRoomComponent } from './pages/add-room/add-room.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
     ContactComponent,
     DetailsComponent,
     ReservationComponent,
-    AddMovieComponent
+    AddMovieComponent,
+    AddRoomComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
     
   ],
   providers: [],

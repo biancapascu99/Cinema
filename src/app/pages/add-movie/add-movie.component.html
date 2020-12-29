@@ -5,50 +5,39 @@
         <h2>Adăugare film</h2>
         <br>
     </div>
+    <div class="alert alert-danger" style="text-align: center;" *ngIf="isValid()">Toate campurile sunt obligatorii!</div>
     <form>
         <div class="mb-3 col-md-8 offset-md-2">
             <label class="form-label">Titlu film</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" [(ngModel)]="movieDetails.title" name='title'>
 
         </div>
         <div class="mb-3 col-md-8 offset-md-2">
-            <label class="form-label">Premii</label>
-            <input type="text" class="form-control">
+            <label class="form-label">Anul aparitiei</label>
+            <input type="text" class="form-control" [(ngModel)]="movieDetails.year" name='year'>
         </div>
 
         <div class="mb-3 col-md-8 offset-md-2">
-            <label class="form-label">Link trailer</label>
-            <input type="text" class="form-control">
+            <label class="form-label">Durata</label>
+            <input type="text" class="form-control" [(ngModel)]="movieDetails.duration" name='duration'>
         </div>
+
         <div class="mb-3 col-md-8 offset-md-2">
             <label class="form-label">Plot</label>
-            <textarea class="form-control" rows="3"></textarea>
+            <textarea class="form-control" rows="3" [(ngModel)]="movieDetails.summary" name='summary'></textarea>
         </div>
 
         <div class="mb-3 col-md-8 offset-md-2">
             <label class="form-label">Categorie</label>
-            <div class="form-check">
-                <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  AP
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                <label class="form-check-label" for="flexCheckChecked">
-                  12+
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                  16+
-                </label>
-            </div>
+            <select class="form-control form-control-sm" [(ngModel)]="movieDetails.type" name='type'>
+                <option>AP</option>
+                <option>12+</option>
+                <option>16+</option>
+              </select>
         </div>
 
         <div class="divB">
-            <button type="submit" class="btn btn-dark btn-lg">Adaugă</button>
+            <button type="submit" class="btn btn-dark btn-lg" [disabled]="isValid()" (click)="addMovie()">Adaugă</button>
         </div>
     </form>
 </div>

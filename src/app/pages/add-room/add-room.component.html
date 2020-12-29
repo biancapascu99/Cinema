@@ -1,0 +1,27 @@
+<app-menu></app-menu>
+
+<div class="container">
+    <div class="divB">
+        <h2>Adăugare sala</h2>
+        <br>
+    </div>
+    <div class="alert alert-danger" style="text-align: center;" *ngIf="isValid()">Toate campurile sunt obligatorii!</div>
+    <form>
+        <div class="mb-3 col-md-8 offset-md-2">
+            <label class="form-label">Capacitate</label>
+            <input type="text" class="form-control" [(ngModel)]="roomDetails.capacity" name='capacity'>
+        </div>
+
+        <div class="mb-3 col-md-8 offset-md-2">
+            <label class="form-label">Typul proiectorului</label>
+            <select class="form-control form-control-sm" [(ngModel)]="roomDetails.projectorType" name='projectorType'>
+                <option>2D</option>
+                <option>3D</option>
+              </select>
+        </div>
+
+        <div class="divB">
+            <button type="submit" class="btn btn-dark btn-lg" [disabled]="isValid()" (click)="addRoom()">Adaugă</button>
+        </div>
+    </form>
+</div>

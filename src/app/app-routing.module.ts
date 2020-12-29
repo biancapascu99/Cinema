@@ -8,6 +8,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { ScheduleComponent } from './pages/schedule/schedule.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ReservationComponent } from './pages/reservation/reservation.component';
+import { AddRoomComponent } from './pages/add-room/add-room.component';
 
 
 const routes: Routes = [
@@ -42,6 +43,10 @@ const routes: Routes = [
     {
         path: 'addMovie',
         component: AddMovieComponent
+    },
+    {
+        path: 'addRoom',
+        component: AddRoomComponent
     }
 ];
 

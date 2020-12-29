@@ -4,5 +4,4 @@ export interface MovieDetails {
     summary: string;
     type: string;
     duration: number;
-    trailer: any;
 }

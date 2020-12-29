@@ -1,8 +1,9 @@
 var express = require('express');
 var scheduleController = require('../controllers/scheduleController')
-var movieDetailsController = require('../controllers/movieDetailsController')
-var reservationDetailsController = require('../controllers/reservationDetailsController');
-var addReservationsController = require('../controllers/addReservationController')
+var movieController = require('../controllers/movieController')
+var reservationController = require('../controllers/reservationController');
+var roomController = require('../controllers/roomController')
+
 
 var router = express.Router();
 
@@ -20,22 +21,35 @@ router.get('/schedule', function(req, res) {
 
 router.get('/details/:id', function(req, res) {
     var id = req.params.id;
-    movieDetailsController.readMovieDetails(id).then((queryResponse) => {
+    movieController.readMovieDetails(id).then((queryResponse) => {
         res.send(queryResponse)
     })
 })
 
 router.get('/reservation/:id', function(req, res) {
     var id = req.params.id;
-    reservationDetailsController.readReservationDetails(id).then((queryResponse) => {
+    reservationController.readReservationDetails(id).then((queryResponse) => {
         res.send(queryResponse)
     })
 })
 
 router.post('/reservation', function(req, res) {
-    addReservationsController.addReservations(req).then((queryResponse) => {
+    reservationController.addReservations(req).then((queryResponse) => {
         res.send(queryResponse)
 
+    })
+})
+
+router.post('/addMovie', function(req, res) {
+    movieController.addMovie(req).then((queryResponse) => {
+        res.send(queryResponse)
+
+    })
+})
+
+router.post('/addRoom', function(req, res) {
+    roomController.addRoom(req).then((queryResponse) => {
+        res.send(queryResponse)
     })
 })
 

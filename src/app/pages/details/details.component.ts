@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieDetails } from './interfaces';
 import { DataService } from './data.service';
-import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -14,12 +13,9 @@ export class DetailsComponent implements OnInit {
   movieDetails: MovieDetails;
   trailerURL: any;
   id: number;
-  constructor(private dataService: DataService, private dom: DomSanitizer, private route: ActivatedRoute) {
+  constructor(private dataService: DataService, private route: ActivatedRoute) {
   }
 
-  sanitize(url: string) {
-    this.dom.bypassSecurityTrustResourceUrl(url);
-  }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -34,11 +30,8 @@ export class DetailsComponent implements OnInit {
           year: data[0].movie_year,
           summary: data[0].movie_summary,
           type: data[0].movie_type,
-          duration: data[0].movie_duration,
-          trailer: data[0].movie_trailer
+          duration: data[0].movie_duration, 
         }
-        this.trailerURL = this.sanitize(this.movieDetails.trailer)
-        
       })
     }
 
