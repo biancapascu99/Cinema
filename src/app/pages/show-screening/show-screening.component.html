@@ -1,0 +1,31 @@
+<app-menu></app-menu>
+<div class="container">
+    <div>
+        <h2>Informatii ecranizari</h2>
+        <br>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Id sala</th>
+                <th scope="col">Nume sala</th>
+                <th scope="col">Titlul filmului</th>
+                <th scope="col">Ora</th>
+                <th scope="col">Data</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let screening of screenings">
+
+                <th scope="row">{{screening.RoomId}}</th>
+                <td>{{screening.room_name}}</td>
+                <td>{{screening.movie_title}}</td>
+                <td>{{screening.screening_date | date:'shortTime'}}</td>
+                <td>{{screening.screening_date | date:'shortDate'}}</td>
+                <td><button type="button" class="btn btn-danger">Sterge</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

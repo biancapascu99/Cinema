@@ -8,11 +8,17 @@
     padding: 5%;
 }
 
-h1 {
-    color: #9e7d88;
+.divB {
     text-align: center;
 }
 
-#img {
-    text-align: center;
+h2 {
+    text-decoration-line: underline;
+    text-decoration-color: #9e7d88;
+}
+
+.form-label {
+    font-size: large;
+    text-decoration-line: underline;
+    text-decoration-color: #9e7d88;
 }

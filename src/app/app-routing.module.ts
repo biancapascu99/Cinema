@@ -9,6 +9,11 @@ import { ScheduleComponent } from './pages/schedule/schedule.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ReservationComponent } from './pages/reservation/reservation.component';
 import { AddRoomComponent } from './pages/add-room/add-room.component';
+import { ShowRoomsComponent } from './pages/show-rooms/show-rooms.component';
+import { ShowMoviesComponent } from './pages/show-movies/show-movies.component';
+import { MyTicketsComponent } from './pages/my-tickets/my-tickets.component';
+import { ShowScreeningComponent } from './pages/show-screening/show-screening.component';
+import { AddScreeningComponent } from './pages/add-screening/add-screening.component';
 
 
 const routes: Routes = [
@@ -47,6 +52,26 @@ const routes: Routes = [
     {
         path: 'addRoom',
         component: AddRoomComponent
+    },
+    {
+        path: 'addScreening',
+        component: AddScreeningComponent
+    },
+    {
+        path: 'showRooms',
+        component: ShowRoomsComponent
+    },
+    {
+        path: 'showMovies',
+        component: ShowMoviesComponent
+    },
+    {
+        path: 'showScreening',
+        component: ShowScreeningComponent
+    },
+    {
+        path: 'showTickets',
+        component: MyTicketsComponent
     }
 ];
 

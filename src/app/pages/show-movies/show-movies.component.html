@@ -1,0 +1,33 @@
+<app-menu></app-menu>
+
+<div class="container">
+    <div>
+        <h2>Informatii filme</h2>
+        <br>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Titlu</th>
+                <th scope="col">An</th>
+                <th scope="col">Durata</th>
+                <th scope="col">Audienta</th>
+                <th scope="col">Plot</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let movie of movies">
+                <th scope="row">{{ movie.MovieId}}</th>
+                <td>{{ movie.movie_title }}</td>
+                <td>{{ movie.movie_year }}</td>
+                <td>{{ movie.movie_duration }}</td>
+                <td>{{ movie.movie_type }}</td>
+                <td style="text-align: justify;"> {{movie.movie_summary}}</td>
+                <td><button type="button" class="btn btn-danger" (click)="deleteMovie(movie.MovieId)">Sterge</button></td>
+                <td><button type="button" class="btn btn-secondary">Editeaza</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

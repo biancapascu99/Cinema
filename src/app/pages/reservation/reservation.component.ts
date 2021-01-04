@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from './data.service';
 import { Reservation } from './interfaces';
 import { SeatCard } from './seat-card/seat-card';
@@ -19,7 +19,7 @@ export class ReservationComponent implements OnInit {
 
   chosenSeats = [];
 
-  constructor(private dataService: DataService, private route: ActivatedRoute) { }
+  constructor(private dataService: DataService, private route: ActivatedRoute,private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -66,6 +66,8 @@ export class ReservationComponent implements OnInit {
 
   createReservation() {
     let newTicket: any = { userId: 1, screeningId: this.id, tickets: this.chosenSeats }
-    this.dataService.createReservation(newTicket).subscribe((response) => { })
+    this.dataService.createReservation(newTicket).subscribe((response) => {
+      this.router.navigate(['/showTickets']);
+     })
   }
 }

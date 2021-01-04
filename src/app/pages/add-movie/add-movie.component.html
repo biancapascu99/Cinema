@@ -5,26 +5,39 @@
         <h2>Adăugare film</h2>
         <br>
     </div>
-    <div class="alert alert-danger" style="text-align: center;" *ngIf="isValid()">Toate campurile sunt obligatorii!</div>
+    <div class="alert alert-danger" style="text-align: center;" *ngIf="isValid()">Toate campurile sunt obligatorii si trebuie sa respecte formatul sugerat!</div>
     <form>
         <div class="mb-3 col-md-8 offset-md-2">
             <label class="form-label">Titlu film</label>
+
             <input type="text" class="form-control" [(ngModel)]="movieDetails.title" name='title'>
+            <div style="color: rgb(189, 126, 126);" *ngIf="!isValidTitle(movieDetails.title)">
+                Fiecare cuvant trebuie sa inceapa cu litera mare (ex: Harry Potter Si Piatra Filozofala).
+            </div>
 
         </div>
         <div class="mb-3 col-md-8 offset-md-2">
             <label class="form-label">Anul aparitiei</label>
             <input type="text" class="form-control" [(ngModel)]="movieDetails.year" name='year'>
+            <div style="color: rgb(189, 126, 126);" *ngIf="!isValidYear(movieDetails.year)">
+                Anul aparitiei trebuie sa fie cel putin 1900 si cel mult {{thisYear}}.
+            </div>
         </div>
 
         <div class="mb-3 col-md-8 offset-md-2">
             <label class="form-label">Durata</label>
             <input type="text" class="form-control" [(ngModel)]="movieDetails.duration" name='duration'>
+            <div style="color: rgb(189, 126, 126);" *ngIf="!isValidDuration(movieDetails.duration)">
+                Durata filmului trebuie sa fie cuprinsa intre 40 si 200 de minute.
+            </div>
         </div>
 
         <div class="mb-3 col-md-8 offset-md-2">
             <label class="form-label">Plot</label>
             <textarea class="form-control" rows="3" [(ngModel)]="movieDetails.summary" name='summary'></textarea>
+            <div style="color: rgb(189, 126, 126);" *ngIf="!isValidSummary(movieDetails.summary)">
+                Plotul filmului trebuie sa aiba cel putin 10 caractere si cel mult 1000.
+            </div>
         </div>
 
         <div class="mb-3 col-md-8 offset-md-2">

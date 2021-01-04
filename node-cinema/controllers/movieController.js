@@ -20,3 +20,23 @@ exports.addMovie = async function(request) {
         })
     })
 }
+
+exports.readMovies = async function() {
+    return new Promise((resolve, reject) => {
+        db.executeQuery(`SELECT * FROM movies order by 1 desc;
+       `).then((res) => {
+            resolve(res);
+        })
+    })
+}
+
+exports.deleteMovie = async function(request) {
+    return new Promise((resolve, reject) => {
+        console.log(request)
+        db.executeQuery(`
+        delete from movies
+        where MovieId = ${request};`).then((res) => {
+            resolve(res);
+        })
+    })
+}

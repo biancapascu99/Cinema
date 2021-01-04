@@ -4,4 +4,5 @@ export interface MovieCard {
     title: string;
     time: string;
     room: number;
+    roomName:string
 }

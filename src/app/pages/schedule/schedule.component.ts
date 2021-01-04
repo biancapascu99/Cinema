@@ -28,9 +28,11 @@ export class ScheduleComponent implements OnInit {
           screeningId: movieCard.ScreeningId,
           title: movieCard.movie_title,
           time: movieCard.screening_date,
-          room: movieCard.RoomId
+          room: movieCard.RoomId,
+          roomName:movieCard.room_name
         })
       }
+      console.log(this.movieCards)
     })
   }
 

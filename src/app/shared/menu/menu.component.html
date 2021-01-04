@@ -1,19 +1,18 @@
 <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #9e7d88;">
 
     <div class="container-fluid">
-        <a [routerLink]="['']" class="navbar-brand text-light">
-            Cinema
-        </a>
 
-        <a [routerLink]="['']" class="nav-link text-light" aria-current="page">Acasa</a>
+        <img src="../../../assets/image/logo2.png" alt="logo" [routerLink]="['']">
+
+        <a [routerLink]="['']" class="nav-link text-light">Pagina principală</a>
         <a [routerLink]="['/schedule']" class="nav-link text-light">Program</a>
-        <a [routerLink]="['/contact']" class="nav-link text-light">Contact</a>
+        <!-- <a [routerLink]="['/contact']" class="nav-link text-light">Contact</a> -->
         <!-- componenta dropdown admin -->
         <app-dropdown-admin></app-dropdown-admin>
 
         <span class="fill-remaining-space"></span>
 
-        <a class="nav-link text-light">Biletele mele</a>
+        <a [routerLink]="['/showTickets']" class="nav-link text-light">Biletele mele</a>
 
         <div class="text-right">
             <button [routerLink]="['/login']" type="button" class="btn btn-outline-light float-right  ml-2">Autentificare </button>

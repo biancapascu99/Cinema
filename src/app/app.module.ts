@@ -22,6 +22,13 @@ import { ReservationComponent } from './pages/reservation/reservation.component'
 import { AddMovieComponent } from './pages/add-movie/add-movie.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddRoomComponent } from './pages/add-room/add-room.component';
+import { ShowMoviesComponent } from './pages/show-movies/show-movies.component';
+import { ShowRoomsComponent } from './pages/show-rooms/show-rooms.component';
+import { MyTicketsComponent } from './pages/my-tickets/my-tickets.component';
+
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { ShowScreeningComponent } from './pages/show-screening/show-screening.component';
+import { AddScreeningComponent } from './pages/add-screening/add-screening.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +46,12 @@ import { AddRoomComponent } from './pages/add-room/add-room.component';
     DetailsComponent,
     ReservationComponent,
     AddMovieComponent,
-    AddRoomComponent
+    AddRoomComponent,
+    ShowMoviesComponent,
+    ShowRoomsComponent,
+    MyTicketsComponent,
+    ShowScreeningComponent,
+    AddScreeningComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +60,8 @@ import { AddRoomComponent } from './pages/add-room/add-room.component';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    CarouselModule.forRoot()
     
   ],
   providers: [],

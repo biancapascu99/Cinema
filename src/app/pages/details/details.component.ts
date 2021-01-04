@@ -23,7 +23,7 @@ export class DetailsComponent implements OnInit {
       this.readMovieDetails(this.id);   
     })
   }
-  readMovieDetails(id) {
+  readMovieDetails(id:number) {
       this.dataService.readMovieDetails(id).subscribe((data: any) => {
         this.movieDetails = {
           title: data[0].movie_title,
