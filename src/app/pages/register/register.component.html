@@ -2,19 +2,19 @@
     <div id="formContent">
         <!-- Tabs Titles -->
         <h5> Inregistrare </h5>
-        <!-- Icon -->
-        <!-- <div class="fadeIn first">
-            <img src="..." id="icon" alt="Icon" />
-        </div> -->
+        <div class="alert alert-danger" *ngIf="isValid()">Your form is invalid</div>
+        <div class="alert alert-danger" *ngIf="isError">Adresa de email mai este folosita</div>
 
-        <!-- Login Form -->
         <form>
-            <input type="text" id="login" class="fadeIn second" placeholder="Name...">
-            <input type="text" id="login" class="fadeIn second" placeholder="Email...">
-            <input type="password" id="password" class="fadeIn third" placeholder="Parola...">
-            <input type="password" id="password" class="fadeIn third" placeholder="Confirma parola...">
+            <input type="text" class="form-control fadeIn second" [class]="validateEmail(user.email) ? 'form-control' : 'form-control is-invalid'" [ngClass]="validateEmail(user.email) ? '' : 'is-invalid'" [(ngModel)]="user.email" name="email" placeholder="Email...">
 
-            <input type="submit" class="fadeIn fourth" value="Inregistrare">
+            <input type="password" class="form-control fadeIn third" [(ngModel)]="user.password" name="password" placeholder="Parola...">
+
+            <input type="password" class="form-control fadeIn third" [(ngModel)]="user.confirm_password" name="confirm_password" [class]="validatePassword(user.password, user.confirm_password) ? 'form-control' : 'form-control is-invalid'" placeholder="Confirma parola...">
+            <div style="color: rgb(190, 29, 29);" *ngIf="!validatePassword(user.password, user.confirm_password)">
+                Parolele nu coincid!
+            </div>
+            <button [disabled]="isValid()" type="submit" class="fadeIn fourth" (click)="register()">Inregistrare</button>
         </form>
 
     </div>

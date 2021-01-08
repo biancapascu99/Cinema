@@ -4,6 +4,7 @@ var movieController = require('../controllers/movieController')
 var reservationController = require('../controllers/reservationController');
 var roomController = require('../controllers/roomController')
 var ticketController = require('../controllers/ticketController')
+var userController = require('../controllers/userController')
 
 
 var router = express.Router();
@@ -138,4 +139,22 @@ router.post('/updateScreening', function(req, res) {
     })
 })
 
+
+router.post('/register', function(req, res) {
+    userController.register(req).then((queryResponse) => {
+            res.send(queryResponse)
+        })
+        .catch((err) => {
+            res.send(err)
+        })
+})
+
+router.post('/login', function(req, res) {
+    userController.login(req).then((queryResponse) => {
+            res.send(queryResponse)
+        })
+        .catch((err) => {
+            res.send(err)
+        })
+})
 module.exports = router;
