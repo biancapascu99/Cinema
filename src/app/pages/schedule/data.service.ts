@@ -10,7 +10,12 @@ export class DataService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public readSchedule(){
+  public readSchedule() {
     return this.httpClient.get(this.REST_API_SERVER + '/schedule');
+  }
+
+  public deleteScreening(payload: number) {
+    console.log(payload)
+    return this.httpClient.get(this.REST_API_SERVER + '/deleteScreening/' + payload)
   }
 }

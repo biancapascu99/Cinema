@@ -23,7 +23,9 @@
                 <td>{{screening.movie_title}}</td>
                 <td>{{screening.screening_date | date:'shortTime'}}</td>
                 <td>{{screening.screening_date | date:'shortDate'}}</td>
-                <td><button type="button" class="btn btn-danger">Sterge</button></td>
+                <td><button type="button" class="btn btn-danger" (click)="deleteScreening(screening.ScreeningId)">Sterge</button></td>
+                <td><button type="button" class="btn btn-secondary" (click)="editScreening(screening.ScreeningId)">Editeaza</button></td>
+
             </tr>
         </tbody>
     </table>

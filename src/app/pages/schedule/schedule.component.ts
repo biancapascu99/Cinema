@@ -32,7 +32,6 @@ export class ScheduleComponent implements OnInit {
           roomName:movieCard.room_name
         })
       }
-      console.log(this.movieCards)
     })
   }
 

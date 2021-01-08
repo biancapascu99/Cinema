@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from './data.service';
 
 @Component({
@@ -9,13 +9,26 @@ import { DataService } from './data.service';
 })
 export class AddRoomComponent implements OnInit {
 
-  public roomDetails: any = {}
+  public id: number;
+  public isEdit: boolean = false;
+  public isDisable: boolean = false;
+  public roomDetails: any = {};
+  public dataForEdit: any;
 
-  validationResult: { isError: boolean; message: string } = { isError: false, message: "" }
+  public validationResult: { isError: boolean; message: string } = { isError: false, message: "" };
 
-  constructor(private dataService: DataService, private router: Router) { }
+  constructor(private dataService: DataService, private router: Router, private route: ActivatedRoute) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.id = params['id'];
+      if (this.id !== undefined) {
+        this.isEdit = true
+        this.isDisable = true
+        this.readRoomDetails(this.id);
+      }
+    })
+  }
 
   addRoom() {
     const { number, capacity, projectorType } = this.roomDetails;
@@ -25,10 +38,30 @@ export class AddRoomComponent implements OnInit {
       projectorType
     }
 
-    this.dataService.addRoom(data).subscribe((res) => {
-      this.router.navigate(['/showRooms']);
-    })
+    if (this.isEdit === false) {
+      this.dataService.addRoom(data).subscribe((res) => {
+        this.router.navigate(['/showRooms']);
+      })
+    } else {
+      this.dataForEdit = {
+        number: number,
+        capacity: capacity,
+        id: this.id
+      }
+      this.dataService.updateRoom(this.dataForEdit).subscribe((res) => {
+        this.router.navigate(['/showRooms']);
+      })
+    }
+  }
 
+  readRoomDetails(id: number) {
+    this.dataService.readRoom(id).subscribe((data: any) => {
+      this.roomDetails = {
+        number: data[0].room_name,
+        capacity: data[0].room_capacity,
+        projectorType: data[0].projector_type
+      }
+    })
   }
 
   //  validari

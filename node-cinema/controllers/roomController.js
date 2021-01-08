@@ -23,3 +23,37 @@ exports.readRooms = async function() {
         })
     })
 }
+
+exports.deleteRoom = async function(request) {
+    return new Promise((resolve, reject) => {
+        console.log(request)
+        db.executeQuery(`
+        delete from rooms
+        where RoomId = ${request};`).then((res) => {
+            resolve(res);
+        })
+    })
+}
+
+exports.readRoom = async function(request) {
+    return new Promise((resolve, reject) => {
+        db.executeQuery(`
+        SELECT r.room_name,r.room_capacity,p.projector_type
+        FROM rooms r
+        join projector p on (p.ProjectorId = r.ProjectorId)
+        where r.RoomId = ${request};`).then((res) => {
+            resolve(res);
+        })
+    })
+}
+
+exports.updateRoom = async function(request) {
+    return new Promise((resolve, reject) => {
+        db.executeQuery(`
+        update rooms 
+        set room_name = "${request.body.number}", room_capacity = ${request.body.capacity}
+        where RoomId = ${request.body.id}`).then((res) => {
+            resolve(res);
+        })
+    })
+}

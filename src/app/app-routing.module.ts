@@ -50,11 +50,23 @@ const routes: Routes = [
         component: AddMovieComponent
     },
     {
+        path: 'editMovie/:id',
+        component: AddMovieComponent
+    },
+    {
         path: 'addRoom',
         component: AddRoomComponent
     },
     {
+        path: 'editRoom/:id',
+        component: AddRoomComponent
+    },
+    {
         path: 'addScreening',
+        component: AddScreeningComponent
+    },
+    {
+        path: 'editScreening/:id',
         component: AddScreeningComponent
     },
     {

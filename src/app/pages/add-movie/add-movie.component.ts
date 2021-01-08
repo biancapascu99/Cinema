@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieDetails } from '../details/interfaces';
 import { DataService } from './data.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-movie',
@@ -10,15 +10,25 @@ import { Router } from '@angular/router';
 })
 export class AddMovieComponent implements OnInit {
 
-  thisYear = (new Date()).getFullYear();
-
+  public thisYear = (new Date()).getFullYear();
+  public id: number
+  public isEdit: boolean = false
   public movieDetails: any = {}
-
+  public dataForEdit: any
   public data: MovieDetails
 
-  constructor(private dataService: DataService, private router: Router) { }
 
-  ngOnInit(): void { }
+  constructor(private dataService: DataService, private router: Router, private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.id = params['id'];
+      if (this.id !== undefined) {
+        this.isEdit = true
+        this.readMovieDetails(this.id);
+      }
+    })
+  }
 
   addMovie() {
 
@@ -32,11 +42,36 @@ export class AddMovieComponent implements OnInit {
       duration: duration,
     }
 
+    if (this.isEdit === false) {
+      this.dataService.addMovie(this.data).subscribe((res) => {
+        this.router.navigate(['/showMovies']);
+      })
+    } else {
+      this.dataForEdit = {
+        title: title,
+        year: year,
+        summary: summary,
+        type: type,
+        duration: duration,
+        id: this.id
+      }
+      this.dataService.updateMovie(this.dataForEdit).subscribe((res) => {
+        this.router.navigate(['/details', this.id]);
+      })
+    }
 
-    this.dataService.addMovie(this.data).subscribe((res) => {
-      this.router.navigate(['/showMovies']);
+  }
+
+  readMovieDetails(id: number) {
+    this.dataService.readMovie(id).subscribe((data: any) => {
+      this.movieDetails = {
+        title: data[0].movie_title,
+        year: data[0].movie_year,
+        summary: data[0].movie_summary,
+        type: data[0].movie_type,
+        duration: data[0].movie_duration
+      }
     })
-
   }
 
   // validari
@@ -48,11 +83,11 @@ export class AddMovieComponent implements OnInit {
   }
 
   isValidTitle(title: string) {
-   
-    if( title === undefined || (title !== undefined && (title.replace(/(^\w{1})|(\s{1}\w{1})/g, match => match.toUpperCase()) === title))) {
+
+    if (title === undefined || (title !== undefined && (title.replace(/(^\w{1})|(\s{1}\w{1})/g, match => match.toUpperCase()) === title))) {
       return true
     }
-       return false
+    return false
   }
 
   isValidYear(year: number) {

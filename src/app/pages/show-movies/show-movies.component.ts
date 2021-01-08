@@ -29,4 +29,8 @@ export class ShowMoviesComponent implements OnInit {
     })
    
   }
+
+  editMovie(id:number) {
+      this.router.navigate([`/editMovie/${id}`]);
+  }
 }

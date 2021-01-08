@@ -26,7 +26,7 @@
 
         <div class="mb-3 col-md-8 offset-md-2">
             <label class="form-label">Typul proiectorului</label>
-            <select class="form-control form-control-sm" [(ngModel)]="roomDetails.projectorType" name='projectorType'>
+            <select class="form-control form-control-sm" [disabled]="isDisable" [(ngModel)]="roomDetails.projectorType" name='projectorType'>
                 <option>2D</option>
                 <option>3D</option>
               </select>

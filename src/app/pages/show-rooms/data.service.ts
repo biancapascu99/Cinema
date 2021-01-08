@@ -10,6 +10,11 @@ export class DataService {
 
     constructor(private httpClient: HttpClient) { }
 
+    public deleteRoom(payload:number){
+        console.log(payload)
+        return this.httpClient.get(this.REST_API_SERVER + '/deleteRoom/' + payload)
+    }
+
     public showRooms(){
         return this.httpClient.get(this.REST_API_SERVER + '/showRooms')
     }

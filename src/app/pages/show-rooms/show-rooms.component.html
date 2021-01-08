@@ -19,7 +19,9 @@
                 <td>{{ room.room_name }}</td>
                 <td>{{ room.room_capacity }}</td>
                 <td>{{ room.projector_type }}</td>
-                <td><button type="button" class="btn btn-danger">Sterge</button></td>
+                <td><button type="button" class="btn btn-danger" (click)="deleteRoom(room.RoomId)">Sterge</button></td>
+                <td><button type="button" class="btn btn-secondary" (click)="editRoom(room.RoomId)">Editeaza</button></td>
+
             </tr>
         </tbody>
     </table>

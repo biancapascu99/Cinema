@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from './data.service';
 
 @Component({
@@ -9,13 +9,24 @@ import { DataService } from './data.service';
 })
 export class AddScreeningComponent implements OnInit {
 
+  public id: number;
+  public isEdit: boolean = false;
   public screeningDetails: any = {}
-  validationResult: { isError: boolean; message: string } = { isError: false, message: "" }
-  thisYear = (new Date()).getFullYear();
+  public dataForEdit: any;
+  public validationResult: { isError: boolean; message: string } = { isError: false, message: "" }
+  public thisYear = (new Date()).getFullYear();
 
-  constructor(private dataService: DataService, private router: Router) { }
+  constructor(private dataService: DataService, private router: Router, private route: ActivatedRoute) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.route.params.subscribe(params => {
+      this.id = params['id'];
+      if (this.id !== undefined) {
+        this.isEdit = true
+        this.readScreeningDetails(this.id);
+      }
+    })
+  }
 
   addScreening() {
 
@@ -26,9 +37,30 @@ export class AddScreeningComponent implements OnInit {
       movieId,
       date,
     }
-    console.log(data)
+
+    if (this.isEdit === false) {
     this.dataService.addScreening(data).subscribe((res) => {
       this.router.navigate(['/showScreening']);
+    })}else {
+      this.dataForEdit = {
+        roomId: roomId,
+        movieId: movieId,
+        date: date,
+        id: this.id
+      }
+      this.dataService.updateScreening(this.dataForEdit).subscribe((res) => {
+        this.router.navigate(['/showScreening']);
+      })
+    }
+  }
+
+  readScreeningDetails(id: number) {
+    this.dataService.readScreening(id).subscribe((data: any) => {
+      this.screeningDetails = {
+        roomId: data[0].RoomId,
+        movieId: data[0].MovieId,
+        date: `${data[0].screening_date.substring(0, 10)} ${data[0].screening_date.substring(11, 19)}`
+      }
     })
   }
 

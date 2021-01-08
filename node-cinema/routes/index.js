@@ -15,7 +15,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/schedule', function(req, res) {
-    scheduleController.readSchedule().then((queryResponse) => {
+    scheduleController.readSchedules().then((queryResponse) => {
         res.send(queryResponse)
     })
 })
@@ -79,12 +79,63 @@ router.get('/deleteMovie/:id', function(req, res) {
     })
 })
 
+router.get('/deleteRoom/:id', function(req, res) {
+    var id = req.params.id;
+    roomController.deleteRoom(id).then((queryResponse) => {
+        res.send(queryResponse)
+    })
+})
+
+router.get('/deleteScreening/:id', function(req, res) {
+    var id = req.params.id;
+    scheduleController.deleteSchedule(id).then((queryResponse) => {
+        res.send(queryResponse)
+    })
+})
+
 router.post('/addRoom', function(req, res) {
     roomController.addRoom(req).then((queryResponse) => {
         res.send(queryResponse)
     })
 })
 
+router.get('/readMovie/:id', function(req, res) {
+    var id = req.params.id;
+    movieController.readMovie(id).then((queryResponse) => {
+        res.send(queryResponse)
+    })
+})
 
+router.post('/updateMovie', function(req, res) {
+    movieController.updateMovie(req).then((queryResponse) => {
+        res.send(queryResponse)
+    })
+})
+
+router.get('/readRoom/:id', function(req, res) {
+    var id = req.params.id;
+    roomController.readRoom(id).then((queryResponse) => {
+        res.send(queryResponse)
+    })
+})
+
+router.post('/updateRoom', function(req, res) {
+    roomController.updateRoom(req).then((queryResponse) => {
+        res.send(queryResponse)
+    })
+})
+
+router.get('/readScreening/:id', function(req, res) {
+    var id = req.params.id;
+    scheduleController.readSchedule(id).then((queryResponse) => {
+        res.send(queryResponse)
+    })
+})
+
+router.post('/updateScreening', function(req, res) {
+    scheduleController.updateSchedule(req).then((queryResponse) => {
+        res.send(queryResponse)
+    })
+})
 
 module.exports = router;

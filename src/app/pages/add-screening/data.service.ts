@@ -14,4 +14,13 @@ export class DataService {
         console.log('payload',payload)
         return this.httpClient.post(this.REST_API_SERVER + '/addScreening', payload)
     }
+
+    public readScreening(payload: number) {
+        return this.httpClient.get(this.REST_API_SERVER + '/readScreening/' + payload)
+    }
+
+    public updateScreening(payload: any) {
+        return this.httpClient.post(this.REST_API_SERVER + '/updateScreening', payload)
+    }
+
 }

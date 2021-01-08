@@ -40,3 +40,26 @@ exports.deleteMovie = async function(request) {
         })
     })
 }
+
+exports.readMovie = async function(request) {
+    return new Promise((resolve, reject) => {
+        db.executeQuery(`
+        select *
+        from movies
+        where MovieId = ${request};`).then((res) => {
+            resolve(res);
+        })
+    })
+}
+
+exports.updateMovie = async function(request) {
+    return new Promise((resolve, reject) => {
+        db.executeQuery(`
+        update movies 
+        set movie_title = "${request.body.title}",movie_year = ${request.body.year},movie_summary = "${request.body.summary}",
+        movie_type = "${request.body.type}",movie_duration = ${request.body.duration}
+        where MovieId = ${request.body.id}`).then((res) => {
+            resolve(res);
+        })
+    })
+}
