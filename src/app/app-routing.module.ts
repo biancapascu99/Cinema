@@ -14,7 +14,9 @@ import { ShowMoviesComponent } from './pages/show-movies/show-movies.component';
 import { MyTicketsComponent } from './pages/my-tickets/my-tickets.component';
 import { ShowScreeningComponent } from './pages/show-screening/show-screening.component';
 import { AddScreeningComponent } from './pages/add-screening/add-screening.component';
-
+import { PublicGuard } from './guards/public.guard';
+import { PrivateGuard } from './guards/private.guard';
+import { AdminGuard } from './guards/admin.guard';
 
 const routes: Routes = [
     {
@@ -23,19 +25,17 @@ const routes: Routes = [
     },
     {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
+        canActivate: [PublicGuard],
     },
     {
         path: 'register',
-        component: RegisterComponent
+        component: RegisterComponent,
+        canActivate: [PublicGuard],
     },
     {
         path: 'schedule',
         component: ScheduleComponent
-    },
-    {
-        path: 'contact',
-        component: ContactComponent
     },
     {
         path: 'details/:id',
@@ -43,47 +43,66 @@ const routes: Routes = [
     },
     {
         path: 'reservation/:id',
-        component: ReservationComponent
+        component: ReservationComponent,
+        
     },
     {
         path: 'addMovie',
-        component: AddMovieComponent
+        component: AddMovieComponent,
+        canActivate: [AdminGuard]
+
     },
     {
         path: 'editMovie/:id',
-        component: AddMovieComponent
+        component: AddMovieComponent,
+        canActivate: [AdminGuard]
+
     },
     {
         path: 'addRoom',
-        component: AddRoomComponent
+        component: AddRoomComponent,
+        canActivate: [AdminGuard]
+
     },
     {
         path: 'editRoom/:id',
-        component: AddRoomComponent
+        component: AddRoomComponent,
+        canActivate: [AdminGuard]
+
     },
     {
         path: 'addScreening',
-        component: AddScreeningComponent
+        component: AddScreeningComponent,
+        canActivate: [AdminGuard]
+
     },
     {
         path: 'editScreening/:id',
-        component: AddScreeningComponent
+        component: AddScreeningComponent,
+        canActivate: [AdminGuard]
+
     },
     {
         path: 'showRooms',
-        component: ShowRoomsComponent
+        component: ShowRoomsComponent,
+        canActivate: [AdminGuard]
+
     },
     {
         path: 'showMovies',
-        component: ShowMoviesComponent
+        component: ShowMoviesComponent,
+        canActivate: [AdminGuard]
+
     },
     {
         path: 'showScreening',
-        component: ShowScreeningComponent
+        component: ShowScreeningComponent,
+        canActivate: [AdminGuard]
     },
     {
-        path: 'showTickets',
-        component: MyTicketsComponent
+        path: 'showTickets/:id',
+        component: MyTicketsComponent,
+        canActivate: [PrivateGuard]
     }
 ];
 

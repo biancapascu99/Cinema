@@ -7,7 +7,7 @@
 
         <!-- <p class="card-text">Scurta descriere sau genul</p> -->
         <div class="text-center">
-            <a [routerLink]="['/reservation/', movieCard.screeningId]" class="btn btn-outline-dark">Rezerva</a>
+            <a *ngIf="isLogin && !isAdmin" [routerLink]="['/reservation/', movieCard.screeningId]" class="btn btn-outline-dark">Rezervă</a>
             <a [routerLink]="['/details/', movieCard.movieId]" class="btn btn-outline-dark ml-2">Detalii</a>
         </div>
     </div>

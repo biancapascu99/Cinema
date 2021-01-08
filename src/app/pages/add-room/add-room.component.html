@@ -5,11 +5,11 @@
         <h2>Adăugare sala</h2>
         <br>
     </div>
-    <div class="alert alert-danger" style="text-align: center;" *ngIf="isValid()">Toate campurile sunt obligatorii si trebuie sa respecte formatul sugerat!</div>
+    <div class="alert alert-danger" style="text-align: center;" *ngIf="isValid()">Toate campurile sunt obligatorii și trebuie să respecte formatul sugerat!</div>
     <form>
 
         <div class="mb-3 col-md-8 offset-md-2">
-            <label class="form-label">Capacitate</label>
+            <label class="form-label">Capacitatea</label>
             <input type="text" class="form-control" [(ngModel)]="roomDetails.capacity" name='capacity'>
             <div style="color: rgb(189, 126, 126);" *ngIf="!isValidCapacity(roomDetails.capacity)">
                 Capacitatea salii trebuie sa fie cuprinsa intre 40 si 220 de locuri.
@@ -17,7 +17,7 @@
         </div>
 
         <div class="mb-3 col-md-8 offset-md-2">
-            <label class="form-label">Numar sala</label>
+            <label class="form-label">Numărul sălii</label>
             <input [disabled]="!roomDetails.capacity" type="text" class="form-control" [(ngModel)]="roomDetails.number" name='number'>
             <div style="color: rgb(189, 126, 126);" *ngIf="(isValidNumber(roomDetails.number,roomDetails.capacity)).isError">
                 {{validationResult.message}}
@@ -25,7 +25,7 @@
         </div>
 
         <div class="mb-3 col-md-8 offset-md-2">
-            <label class="form-label">Typul proiectorului</label>
+            <label class="form-label">Tipul proiectorului</label>
             <select class="form-control form-control-sm" [disabled]="isDisable" [(ngModel)]="roomDetails.projectorType" name='projectorType'>
                 <option>2D</option>
                 <option>3D</option>

@@ -26,7 +26,7 @@ export class ReservationComponent implements OnInit {
       this.id = params['id'];
       this.readScreening(this.id);
     })
-
+ 
   }
 
   readScreening(id: number) {
@@ -65,9 +65,11 @@ export class ReservationComponent implements OnInit {
   }
 
   createReservation() {
-    let newTicket: any = { userId: 1, screeningId: this.id, tickets: this.chosenSeats }
+    const token = localStorage.getItem('token');
+    const id = JSON.parse(atob(token.split('.')[1]))._id
+    let newTicket: any = { userId: id, screeningId: this.id, tickets: this.chosenSeats }
     this.dataService.createReservation(newTicket).subscribe((response) => {
-      this.router.navigate(['/showTickets']);
+      this.router.navigate(['/showTickets/',id]);
      })
   }
 }

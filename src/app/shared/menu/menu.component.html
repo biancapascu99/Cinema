@@ -8,15 +8,17 @@
         <a [routerLink]="['/schedule']" class="nav-link text-light">Program</a>
         <!-- <a [routerLink]="['/contact']" class="nav-link text-light">Contact</a> -->
         <!-- componenta dropdown admin -->
-        <app-dropdown-admin></app-dropdown-admin>
+        <app-dropdown-admin *ngIf="isAdmin"></app-dropdown-admin>
 
         <span class="fill-remaining-space"></span>
 
-        <a [routerLink]="['/showTickets']" class="nav-link text-light">Biletele mele</a>
+        <a *ngIf="isLogin && !isAdmin" [routerLink]="['/showTickets/', idUser]" class="nav-link text-light">Biletele mele</a>
 
         <div class="text-right">
-            <button [routerLink]="['/login']" type="button" class="btn btn-outline-light float-right  ml-2">Autentificare </button>
-            <button [routerLink]="['/register']" type="button" class="btn btn-outline-light float-right">Inregistrare </button>
+            <button *ngIf="!isLogin" [routerLink]="['/login']" type="button" class="btn btn-outline-light float-right  ml-2">Autentificare </button>
+            <button *ngIf="!isLogin" [routerLink]="['/register']" type="button" class="btn btn-outline-light float-right">Inregistrare </button>
+            <button *ngIf="isLogin" type="button" class="btn btn-outline-light float-right" (click)="logout()"> Deconectare </button>
+
         </div>
     </div>
 </nav>

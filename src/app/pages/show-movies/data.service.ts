@@ -15,7 +15,6 @@ export class DataService {
     }
 
     public deleteMovie(payload:number){
-        console.log(payload)
         return this.httpClient.get(this.REST_API_SERVER + '/deleteMovie/' + payload)
     }
 

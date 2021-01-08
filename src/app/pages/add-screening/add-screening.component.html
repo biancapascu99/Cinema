@@ -5,22 +5,22 @@
         <h2>Adăugare ecranizare</h2>
         <br>
     </div>
-    <div class="alert alert-danger" style="text-align: center;" *ngIf="isValid()">Toate campurile sunt obligatorii si trebuie sa respecte formatul sugerat!</div>
+    <div class="alert alert-danger" style="text-align: center;" *ngIf="isValid()">Toate campurile sunt obligatorii și trebuie să respecte formatul sugerat!</div>
     <form>
 
         <div class="mb-3 col-md-8 offset-md-2">
-            <label class="form-label">Id sala</label>
+            <label class="form-label">Id-ul sălii</label>
             <input type="text" class="form-control" [(ngModel)]="screeningDetails.roomId" name='roomId'>
             <div style="color: rgb(189, 126, 126);" *ngIf="!isValidRoomId(screeningDetails.roomId)">
-                Id sala trebuie sa fie un numar
+                Id-ul sălii trebuie să fie un număr!
             </div>
         </div>
 
         <div class="mb-3 col-md-8 offset-md-2">
-            <label class="form-label">Id film</label>
+            <label class="form-label">Id-ul filmului</label>
             <input type="text" class="form-control" [(ngModel)]="screeningDetails.movieId" name='movieId'>
             <div style="color: rgb(189, 126, 126);" *ngIf="!isValidMovieId(screeningDetails.movieId)">
-                Id film trebuie sa fie un numar.
+                Id-ul filmului trebuie să fie un număr!
             </div>
         </div>
 

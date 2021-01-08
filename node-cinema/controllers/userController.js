@@ -29,7 +29,6 @@ exports.register = async function(request) {
 
 exports.login = async function(request) {
     return new Promise((resolve, reject) => {
-        console.log(request.body)
         db.executeQuery(`SELECT COUNT(*) as count FROM users
             WHERE user_email= "${request.body.email}";`).then((res) => {
             if (res[0].count == 1) {
@@ -37,7 +36,6 @@ exports.login = async function(request) {
                 db.executeQuery(`SELECT user_password FROM users
                 WHERE user_email= "${request.body.email}";`).then((res2) => {
                     if (res2[0].user_password === password) {
-                        console.log('logat')
                         db.executeQuery(`SELECT UserId, user_type FROM users
                         WHERE user_email= "${request.body.email}";`).then((res3) => {
                             var token = JWT.getToken({

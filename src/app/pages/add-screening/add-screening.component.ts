@@ -82,7 +82,7 @@ export class AddScreeningComponent implements OnInit {
     }
 
     if (!dateRegex.test(date)) {
-      this.validationResult = { isError: true, message: "Numarul salii nu respecta forma <aaaa>-<ll>-<zz> <hh>:<mm>:<ss>." }
+      this.validationResult = { isError: true, message: "Numărul sălii nu respectă formatul <aaaa>-<ll>-<zz> <hh>:<mm>:<ss>!" }
       return this.validationResult
     } else {
       let matches = date.match(dateRegex)
@@ -94,37 +94,37 @@ export class AddScreeningComponent implements OnInit {
       var second = parseInt(matches[6], 10);
 
       if ((day > 29 && month === 2)) {
-        this.validationResult = { isError: true, message: "Februarie nu poate sa aiba mai mult de 29 de zile." }
+        this.validationResult = { isError: true, message: "Februarie nu poate să aibă mai mult de 29 de zile!" }
         return this.validationResult;
       }
 
       if (!(day >= 1 && day <= 31)) {
-        this.validationResult = { isError: true, message: "Ziua trebuie sa fie un numar cuprins intre 1 si 31" }
+        this.validationResult = { isError: true, message: "Ziua trebuie să fie un număr cuprins între 1 și 31!" }
         return this.validationResult;
       }
 
       if (!(month >= 1 && month <= 12)) {
-        this.validationResult = { isError: true, message: "Luna trebuie sa fie un numar cuprins intre 1 si 12" }
+        this.validationResult = { isError: true, message: "Luna trebuie să fie un număr cuprins între 1 și 12!" }
         return this.validationResult;
       }
 
       if (!(year >= 1900 && year <= this.thisYear)) {
-        this.validationResult = { isError: true, message: "Anul trebuie sa fie un numar cuprins intre 1900 si " + this.thisYear }
+        this.validationResult = { isError: true, message: "Anul trebuie să fie un număr cuprins între 1900 și " + this.thisYear + "!"}
         return this.validationResult;
       }
 
       if (!(hour >= 7 && hour <= 23)) {
-        this.validationResult = { isError: true, message: "Ora trebuie sa fie un numar cuprins intre 7 si 23" }
+        this.validationResult = { isError: true, message: "Ora trebuie să fie un număr cuprins între 7 și 23!" }
         return this.validationResult;
       }
 
       if (!(minute >= 0 && minute <= 59)) {
-        this.validationResult = { isError: true, message: "Minutele trebuie sa fie un numar cuprins intre 0 si 59" }
+        this.validationResult = { isError: true, message: "Minutele trebuie să fie un număr cuprins între 0 și 59!" }
         return this.validationResult;
       }
 
       if (!(second >= 0 && second <= 59)) {
-        this.validationResult = { isError: true, message: "Secundele trebuie sa fie un numar cuprins intre 0 si 59" }
+        this.validationResult = { isError: true, message: "Secundele trebuie sa fie un număr cuprins între 0 și 59!" }
         return this.validationResult;
       }
     }

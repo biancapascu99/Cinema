@@ -12,13 +12,14 @@ export class MyTicketsComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.showTickets()
+    const token = localStorage.getItem('token');
+    const id = JSON.parse(atob(token.split('.')[1]))._id
+    this.showTickets(id)
   }
 
-  showTickets() {
-    this.dataService.showTickets().subscribe((data: any) => {
+  showTickets(id: number) {
+    this.dataService.showTickets(id).subscribe((data: any) => {
       this.tickets = data
-      console.log(this.tickets)
     })
   }
 

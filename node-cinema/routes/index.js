@@ -47,8 +47,9 @@ router.get('/showMovies', function(req, res) {
     })
 })
 
-router.get('/showTickets', function(req, res) {
-    ticketController.readTickets().then((queryResponse) => {
+router.get('/showTickets/:id', function(req, res) {
+    var id = req.params.id;
+    ticketController.readTickets(id).then((queryResponse) => {
         res.send(queryResponse)
     })
 })
@@ -157,4 +158,5 @@ router.post('/login', function(req, res) {
             res.send(err)
         })
 })
+
 module.exports = router;

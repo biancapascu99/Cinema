@@ -89,7 +89,7 @@ export class AddRoomComponent implements OnInit {
     }
 
     if (!roomNumberRegex.test(roomNumber)) {
-      this.validationResult = { isError: true, message: "Numarul salii nu respecta forma <dimensiune>-<XYZ> unde dimensiunea este S, M sau L, iar XYZ sunt cifre" }
+      this.validationResult = { isError: true, message: "Numărul sălii nu respectă formatul <dimensiune>-<XYZ> unde dimensiunea este S, M sau L, iar XYZ sunt cifre!" }
       return this.validationResult
     }
 
@@ -97,19 +97,19 @@ export class AddRoomComponent implements OnInit {
     switch (prefix) {
       case 'S':
         if (!(capacity >= 40 && capacity < 100)) {
-          this.validationResult = { isError: true, message: "Prefixul S este valabil pentru capacitati cuprinse intre 40 si 99." }
+          this.validationResult = { isError: true, message: "Prefixul S este valabil pentru capacitați cuprinse între 40 și 99!" }
           return this.validationResult
         }
         break;
       case 'M':
         if (!(capacity >= 100 && capacity < 160)) {
-          this.validationResult = { isError: true, message: "Prefixul M este valabil pentru capacitati cuprinse intre 100 si 159." }
+          this.validationResult = { isError: true, message: "Prefixul M este valabil pentru capacități cuprinse între 100 și 159!" }
           return this.validationResult
         }
         break;
       case 'L':
         if (!(capacity >= 160 && capacity < 220)) {
-          this.validationResult = { isError: true, message: "Prefixul M este valabil pentru capacitati cuprinse intre 160 si 219." }
+          this.validationResult = { isError: true, message: "Prefixul M este valabil pentru capacități cuprinse între 160 și 219!" }
           return this.validationResult
         }
         break;
