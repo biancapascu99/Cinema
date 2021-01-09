@@ -23,4 +23,11 @@ export class MyTicketsComponent implements OnInit {
     })
   }
 
+  deleteTicket(id:number){
+    this.dataService.deleteTicket(id).subscribe((res)=>{
+      window.location.reload();
+    })
+   
+  }
+
 }

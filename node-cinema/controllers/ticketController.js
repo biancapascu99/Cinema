@@ -14,3 +14,14 @@ exports.readTickets = async function(request) {
         })
     })
 }
+
+exports.deleteTicket = async function(request) {
+    return new Promise((resolve, reject) => {
+        console.log(request)
+        db.executeQuery(`
+        delete from tickets
+        where TicketId = ${request};`).then((res) => {
+            resolve(res);
+        })
+    })
+}

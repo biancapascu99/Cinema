@@ -2,16 +2,20 @@
     <div id="formContent">
         <!-- Tabs Titles -->
         <h5> Inregistrare </h5>
-        <div class="alert alert-danger" *ngIf="isValid()">Your form is invalid</div>
+        <div class="alert alert-danger" *ngIf="isValid()">Toate campurile sunt obligatorii și trebuie să respecte formatul sugerat!</div>
         <div class="alert alert-danger" *ngIf="isError">Adresa de email mai este folosita</div>
 
         <form>
             <input type="text" class="form-control fadeIn second" [class]="validateEmail(user.email) ? 'form-control' : 'form-control is-invalid'" [ngClass]="validateEmail(user.email) ? '' : 'is-invalid'" [(ngModel)]="user.email" name="email" placeholder="Email...">
-
-            <input type="password" class="form-control fadeIn third" [(ngModel)]="user.password" name="password" placeholder="Parola...">
-
-            <input type="password" class="form-control fadeIn third" [(ngModel)]="user.confirm_password" name="confirm_password" [class]="validatePassword(user.password, user.confirm_password) ? 'form-control' : 'form-control is-invalid'" placeholder="Confirma parola...">
-            <div style="color: rgb(190, 29, 29);" *ngIf="!validatePassword(user.password, user.confirm_password)">
+            <div style="color: rgb(190, 29, 29);" *ngIf="!validateEmail(user.email)">
+                Email-ul nu are formatul unei adrese de email!
+            </div>
+            <input type="password" class="form-control fadeIn third" [class]="validatePassword(user.password) ? 'form-control' : 'form-control is-invalid'" [(ngModel)]="user.password" name="password" placeholder="Parola...">
+            <div style="color: rgb(190, 29, 29);" *ngIf="!validatePassword(user.password)">
+                Parola nu are 8 caractere, dintre care cel putin o litera si o cifra!
+            </div>
+            <input type="password" class="form-control fadeIn third" [(ngModel)]="user.confirm_password" name="confirm_password" [class]="validatePasswords(user.password, user.confirm_password) ? 'form-control' : 'form-control is-invalid'" placeholder="Confirma parola...">
+            <div style="color: rgb(190, 29, 29);" *ngIf="!validatePasswords(user.password, user.confirm_password)">
                 Parolele nu coincid!
             </div>
             <button [disabled]="isValid()" type="submit" class="fadeIn fourth" (click)="register()">Inregistrare</button>

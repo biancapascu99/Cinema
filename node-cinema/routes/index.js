@@ -95,6 +95,13 @@ router.get('/deleteScreening/:id', function(req, res) {
     })
 })
 
+router.get('/deleteTicket/:id', function(req, res) {
+    var id = req.params.id;
+    ticketController.deleteTicket(id).then((queryResponse) => {
+        res.send(queryResponse)
+    })
+})
+
 router.post('/addRoom', function(req, res) {
     roomController.addRoom(req).then((queryResponse) => {
         res.send(queryResponse)

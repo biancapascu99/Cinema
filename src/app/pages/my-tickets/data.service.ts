@@ -13,4 +13,8 @@ export class DataService {
     public showTickets(payload:number){
         return this.httpClient.get(this.REST_API_SERVER + '/showTickets/' + payload)
     }
+    public deleteTicket(payload:number){
+        console.log(payload)
+        return this.httpClient.get(this.REST_API_SERVER + '/deleteTicket/' + payload)
+    }
 }
